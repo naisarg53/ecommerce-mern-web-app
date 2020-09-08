@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Shipping from './Shipping';
 import Register from './Register';
 import PlaceOrder from './PlaceOrder';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
