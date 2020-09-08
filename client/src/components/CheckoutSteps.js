@@ -66,9 +66,9 @@ export default function HorizontalLabelPositionBelowStepper(e) {
             </Stepper>
             <div>
                 {activeStep === steps.length ? (
-                    <div>
-                        <Typography className={classes.instructions}>All steps completed</Typography>
-                        <Button onClick={handleReset}>Reset</Button>
+                    <div className="mt-5" style={{ textAlign: "center" }}>
+                        <h3>Hope You Like Shopping!!!</h3><br></br>
+                        <Link to="/" className="btn-lg btn-primary col-md-4">Buy More</Link>
                     </div>
                 ) : (
                         <div>
