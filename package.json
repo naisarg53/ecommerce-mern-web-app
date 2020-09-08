@@ -2,7 +2,8 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.js",  
+  "homepage": "http://naisarg53.github.io/ecommerce-mern-web-app",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
