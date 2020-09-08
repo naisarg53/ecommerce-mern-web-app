@@ -20,7 +20,8 @@ app.use(
     })
 )
 
-app.use(express.static(path.join(__dirname, 'client/build')))
+//app.use('/', express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, "client", "build")))
 //mongodb+srv://m001-student:<password>@cluster0-z5fo7.mongodb.net/test
 
 const connection = "mongodb+srv://ecommercenshop:don654321@cluster0-z5fo7.mongodb.net/ecommercenshop";
@@ -62,8 +63,8 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
 }*/
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, function () {
