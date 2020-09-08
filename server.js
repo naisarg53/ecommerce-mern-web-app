@@ -24,7 +24,8 @@ app.use(
 app.use(express.static(path.join(__dirname, "client", "build")))
 //mongodb+srv://m001-student:<password>@cluster0-z5fo7.mongodb.net/test
 
-const connection = "mongodb+srv://ecommercenshop:don654321@cluster0-z5fo7.mongodb.net/ecommercenshop";
+
+const connection = "mongodb+srv://ecommercenshop:don654321@cluster0-z5fo7.mongodb.net/ecommercenshop?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
 mongoose.connect(process.env.MONGODB_URL || connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
