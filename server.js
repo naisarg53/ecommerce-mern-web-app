@@ -20,7 +20,7 @@ app.use(
     })
 )
 
-app.use('/', express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, 'client/build')))
 //mongodb+srv://m001-student:<password>@cluster0-z5fo7.mongodb.net/test
 
 const connection = "mongodb+srv://ecommercenshop:don654321@cluster0-z5fo7.mongodb.net/ecommercenshop";
