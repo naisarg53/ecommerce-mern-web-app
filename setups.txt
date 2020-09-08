@@ -1,0 +1,9 @@
+npm install --save 
+
+adding project to github
+
+git init (in the folder)
+git add . (to add all the files)
+git commit -m “your message here”
+git push origin master <url>(URL of your github repository)
+git push origin master.
