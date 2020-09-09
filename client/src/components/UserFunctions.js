@@ -31,7 +31,7 @@ export const login = user => {
 
 export const getProducts = async () => {
     try {
-        const { data } = await axios.get("products/getProducts");
+        const { data } = await axios.get('products/getProducts');
 
         const modifiedData = data.map((product) => ({
             _id: product._id,
@@ -53,7 +53,7 @@ export const getCartDetails = async () => {
     try {
         const user_id = localStorage.getItem("email");
         
-        const { data } = await axios.get("http://localhost:5000/carts/getProducts/getCart/" + user_id);
+        const { data } = await axios.get('carts/getProducts/getCart/' + user_id);
  //       console.log({ data });
         const modifiedData = data.map((cart) => ({
             user_id: cart.user_id,
@@ -76,7 +76,7 @@ export const getShippingLocation = async () => {
     try {
         const user_id = localStorage.getItem("email");
 
-        const { data } = await axios.get("http://localhost:5000/shippings/shipping/" + user_id);
+        const { data } = await axios.get('shippings/shipping/' + user_id);
       //  console.log({ data });
         const modifiedData = data.map((shipping) => ({
             user_id: shipping.user_id,
