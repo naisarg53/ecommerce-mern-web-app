@@ -39,7 +39,7 @@ class UpdateShipping extends Component {
         }
      //   console.log(updatedUser);
 
-        axios.put('http://localhost:5000/shippings/update-shipping/' + this.state.user_id, updatedUser)
+        axios.put('/shippings/update-shipping/' + this.state.user_id, updatedUser)
             .then((res) => {
                 console.log(res.data)
                 console.log('Shipping Address successfully updated')
