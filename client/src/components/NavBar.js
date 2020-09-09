@@ -23,7 +23,7 @@ class Cards extends Component {
             const email = localStorage.getItem("email");
             // console.log(email);            
 
-            axios.get('http://localhost:5000/users/login/User/' + email)
+            axios.get('users/login/User/' + email)
                 .then((res) => {
                     this.setState({ first_name: res.data.msg })
                     
