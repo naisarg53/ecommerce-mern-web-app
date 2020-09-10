@@ -20,11 +20,7 @@ class Cards extends React.Component {
     goToCardDetails = (cardId, cardValue) => {
         localStorage.setItem("selectedCard", cardId);
         localStorage.setItem("selectedCardValue", JSON.stringify(cardValue));
-        // this.props.history.push('/login');
-       // const dataValues = Object.values(data);
-        // localStorage.setItem("data", dataValues);
-       // console.log(cardId);
-       // console.log(JSON.stringify(cardValue));
+        
     }
 
     updateProduct = (cardId, cardValue) => {
@@ -33,7 +29,7 @@ class Cards extends React.Component {
     }
 
     deleteProduct = (id) => {
-        axios.delete('http://localhost:5000/products/deleteProduct/' + id)
+        axios.delete('products/deleteProduct/' + id)
             .then((res) => {
                 console.log('Product successfully deleted!')
             }).catch((error) => {
