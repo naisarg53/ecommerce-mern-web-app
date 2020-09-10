@@ -22,18 +22,13 @@ class AddToCartDetails extends React.Component {
 
        
             localStorage.setItem("checkoutCard", cardId);
-            localStorage.setItem("checkoutCardValue", JSON.stringify(cardValue));
-            // this.props.history.push('/login');
-            // const dataValues = Object.values(data);
-            // localStorage.setItem("data", dataValues);
-        //    console.log(cardId);
-      //  console.log(JSON.stringify(cardValue));
+            localStorage.setItem("checkoutCardValue", JSON.stringify(cardValue));          
         
     }    
 
     deleteCartProduct = (id) => {
         
-        axios.delete('http://localhost:5000/carts/deleteProduct/' + id)
+        axios.delete('carts/deleteProduct/' + id)
             .then((res) => {
                 console.log('Product successfully deleted!')
             }).catch((error) => {
