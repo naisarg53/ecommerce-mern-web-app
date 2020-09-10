@@ -72,6 +72,9 @@ products.get('/getProducts', (req, res) => {
     Product.find()
         .then(product => {
             if (product) {
+                 res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
                 res.json(product)
             } else {
                 res.send('Product does not exist')
