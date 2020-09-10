@@ -38,11 +38,9 @@ class UpdateProduct extends Component {
         form.append('category', this.state.category);
         form.append('quantity', this.state.quantity);
         form.append('description', this.state.description);
-       // console.log(this.state.img);
-        //console.log(form);
+      
         const updateProduct = JSON.parse(localStorage.getItem("updateSelectedCardValue"));
-       // console.log(updateProduct._id);
-        axios.put("http://localhost:5000/products/update-product/" + updateProduct._id, form, {}).then(res => {
+        axios.put("products/update-product/" + updateProduct._id, form, {}).then(res => {
             if (res) {
                 this.props.history.push(`/`)
             }
