@@ -23,7 +23,6 @@ class CardDetails extends React.Component {
 
     handleCategory = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-       // console.log(this.state.product_title);
 
         const selectedCardValue = JSON.parse(localStorage.getItem("selectedCardValue"));
         //console.log(selectedCardValue.product_title);
@@ -33,9 +32,6 @@ class CardDetails extends React.Component {
         this.setState({ price: selectedCardValue.price });
         this.setState({ img: selectedCardValue.img });
         this.setState({ description: selectedCardValue.description });
-       // console.log(this.state.product_title);
-      //  console.log(this.state.img);
-    //    console.log(this.state.category);
     }
 
     onSubmit = (e) => {
@@ -55,7 +51,7 @@ class CardDetails extends React.Component {
             form.append('description', this.state.description);
             console.log(this.state.img);
             console.log(form);
-            axios.post("http://localhost:5000/carts/productRegister/addToCart", form, {}).then(res => {
+            axios.post("carts/productRegister/addToCart", form, {}).then(res => {
                 if (res) {
                     this.props.history.push(`/getCartDetails`)
                 }
