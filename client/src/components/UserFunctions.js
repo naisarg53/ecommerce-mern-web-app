@@ -31,7 +31,7 @@ export const login = user => {
 
 export const getProducts = async () => {
     try {
-        const { data } = await axios.get('http://localhost:5000/products/getProducts');
+        const { data } = await axios.get('products/getProducts');
 
         const modifiedData = data.map((product) => ({
             _id: product._id,
