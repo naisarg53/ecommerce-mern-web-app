@@ -19,8 +19,6 @@ class AddToCartDetails extends React.Component {
         const fetchedData = await getCartDetails();
 
         this.setState({ data: fetchedData });
-      //  console.log(this.state.data);
-        //console.log(this.state.shipping[0].address);
 
         const checkoutCardValue = JSON.parse(localStorage.getItem("checkoutCardValue"));
         this.setState({ quant: checkoutCardValue.quantity })
@@ -38,7 +36,7 @@ class AddToCartDetails extends React.Component {
 
       //  console.log(updatedQuantity);
      //   console.log(cardId);
-        axios.put('http://localhost:5000/carts/update-cart/' + cardId, updatedQuantity)
+        axios.put('carts/update-cart/' + cardId, updatedQuantity)
             .then((res) => {                
                 console.log(res.data)
                 console.log('Quantity successfully updated')
@@ -51,7 +49,6 @@ class AddToCartDetails extends React.Component {
 
     handleToken = (token) => {
        
-    //    console.log({ token })
         const checkoutCardValue = JSON.parse(localStorage.getItem("checkoutCardValue"));
         const email = localStorage.getItem("email");
             
@@ -75,10 +72,8 @@ class AddToCartDetails extends React.Component {
 
     render() {
         const checkoutCardValue = JSON.parse(localStorage.getItem("checkoutCardValue"));
-      //  console.log(checkoutCardValue)
+     
         const { shipping } = this.state;
-      //  console.log(shipping.length);
-       // console.log(shipping == 0);
 
         return (
             <div className="container mt-5">
