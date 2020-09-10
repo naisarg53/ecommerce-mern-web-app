@@ -107,7 +107,7 @@ class Shipping extends Component {
                                 type="submit"
                                 className="btn btn-lg btn-primary btn-block"
                             >
-                                Continue
+                                Save
                             </button>
                         </form>
                     </div>
