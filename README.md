@@ -15,6 +15,10 @@ What's Next
 Add a payment method solution to enable checkout and collecting payments
 You can install this web app on destop or mobile.
 
+<h3><b>HINTS</b></h3>
+
+To run the Admin interface use Email Address : admin@admin.com and Password: admin
+
 <h5><b>Demo<b><h5>
 This application is deployed on Heroku. Please check it out 😄 here.
 https://npshop.herokuapp.com/
