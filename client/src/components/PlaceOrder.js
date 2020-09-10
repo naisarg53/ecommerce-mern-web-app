@@ -59,7 +59,7 @@ class AddToCartDetails extends React.Component {
             token: token
         };
         axios
-            .post("http://localhost:5000/payment", body)
+            .post("payment", body)
             .then(response => {
                 console.log(response);
                 alert("Payment Success");                
