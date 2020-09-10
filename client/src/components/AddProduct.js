@@ -40,7 +40,7 @@ class AddProduct extends Component {
         form.append('description', this.state.description);
       //  console.log(this.state.img);
        // console.log(form);
-        axios.post("http://localhost:5000/products/productRegister", form, {}).then(res => {
+        axios.post("products/productRegister", form, {}).then(res => {
             if (res) {
                 this.props.history.push(`/`)
             }
