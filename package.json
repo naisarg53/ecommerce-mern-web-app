@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",  
-  "homepage": "https://npshop.herokuapp.com/",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
