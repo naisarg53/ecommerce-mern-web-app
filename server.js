@@ -9,8 +9,6 @@ var path = require('path');
 const dotenv = require("dotenv");
 dotenv.config()
 
-//const configureRoutes = require('./routes')
-//configureRoutes(app);
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -20,36 +18,10 @@ app.use(
     })
 )
 
-//app.use('/', express.static(path.join(__dirname, 'client/build')))
-//app.use(express.static(path.join(__dirname, "client", "build")))
-//mongodb+srv://m001-student:<password>@cluster0-z5fo7.mongodb.net/test
-if (process.env.NODE_ENV === 'production') {
-
-    app.use(express.static('client/build'));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
-
 const connection = "mongodb+srv://ecommercenshop:don654321@cluster0.z5fo7.mongodb.net/ecommercenshop?retryWrites=true&w=majority";
 mongoose.connect(process.env.MONGODB_URL || connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
-/*
-const mongoURI = 'mongodb://localhost:27017/mernloginreg' // use merloginreg
-
-mongoose
-    .connect(
-        mongoURI,
-        {
-            useNewUrlParser: true,
-  //          useUnifiedTopology: true
-        }
-    )
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err))
-    */
 
 var Users = require('./routes/Users');
 var Products = require('./routes/Products');
@@ -61,15 +33,18 @@ app.use('/users', Users);
 app.use('/Uploads', express.static('Uploads'));
 
 app.use('/carts', Carts);
-//app.use('/CartUploads', express.static('CartUploads'));
-//app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
 app.use('/products', Products);
 app.use('/shippings', Shippings);
 app.use('/payment', Payments);
-/*
+
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'))
-}*/
+
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 app.listen(port, function () {
     console.log('Server is running on port: ' + port)
