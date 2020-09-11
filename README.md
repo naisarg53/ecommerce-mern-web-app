@@ -1,10 +1,10 @@
 <h3><b>MERN Ecommerce PWA</b></h3>
 
 <h3><b>Description</b></h3>
-An ecommerce store built with MERN stack. This ecommerce store enable three main different flows or implementations:
+An ecommerce store built with MERN stack. This ecommerce store enable two main different flows or implementations:
 
-Admins manage and control the entire store components by Adding, Updating and Deletion of Product.
-User can enjoy this amazing site by login, register, view products , search products, see product details , add to cart, provide shipping address, place order by making credit payment.
+1) Admins manage and control the entire store components by Adding, Updating and Deletion of Product.
+2) User can enjoy this amazing site by login, register, view products , search products, see product details , add to cart, provide shipping address, place order by making credit payment.
 
 <b>features:</b>
 Node provides the backend environment for this application
