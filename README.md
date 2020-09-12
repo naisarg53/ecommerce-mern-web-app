@@ -4,16 +4,7 @@
 An ecommerce store built with MERN stack. This ecommerce store enable two main different flows or implementations:
 
 1) Admins manage and control the entire store components by Adding, Updating and Deletion of Product.
-2) User can enjoy this amazing site by login, register, view products , search products, see product details , add to cart, provide shipping address, place order by making credit payment.
-
-<b>features:</b>
-Node provides the backend environment for this application
-Express middleware is used to handle requests, routes
-Mongoose schemas to model the application data
-React for displaying UI components
-What's Next
-Add a payment method solution to enable checkout and collecting payments
-You can install this web app on destop or mobile.
+2) User can enjoy this amazing web app by login, register, view products , search products, see product details , add to cart, provide shipping address, place order by making credit card payment.At the same time, User can also install this web app to there mobile and desktop and use it as an application.
 
 <h3><b>HINTS</b></h3>
 
