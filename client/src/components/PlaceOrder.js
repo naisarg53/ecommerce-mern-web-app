@@ -104,7 +104,7 @@ class AddToCartDetails extends React.Component {
                             </li>
                             <br></br>
                             {shipping.length == 0 ?
-                                <h3>Please Add Shipping Address...</h3>
+                                <h3>Please Add Shipping Address To Make Payment.</h3>
                                 :
                                 shipping.map((shippings, i) => (
                                     <li className="list-group-item" key={i} value={shippings}>
@@ -131,14 +131,17 @@ class AddToCartDetails extends React.Component {
                                 ))
                             }<br></br>
                             <StripeCheckout
-                                className="mx-auto mb-5"                                
-                                    stripeKey="pk_test_51HIoqfJgZPhcUayW0FTmFXKqmLsLJYnHDEMBduQLWnEzEAIFEUqqnAfUySBqVK07vJssaPTRkrZVYBxA6vLMHe0e00AcmZP3yv"
+                                className="mx-auto mb-5"
+                                stripeKey="pk_test_51HIoqfJgZPhcUayW0FTmFXKqmLsLJYnHDEMBduQLWnEzEAIFEUqqnAfUySBqVK07vJssaPTRkrZVYBxA6vLMHe0e00AcmZP3yv"
                                 token={this.handleToken}
                                 amount={(checkoutCardValue.price * this.state.quant) * 100}
-                                    description={checkoutCardValue.product_title}
-                                    label="Go To Payment" //Component button text
-                                    panelLabel="Pay" //Submit button in modal
-                                    billingAddress={false}
+                                description={checkoutCardValue.product_title}
+                                currency='inr'
+                                label="Go To Payment" //Component button text
+                                panelLabel="Pay" //Submit button in modal
+                                billingAddress={false}
+                                disabled={shipping.length == 0 ? true : false}
+                               
                                 />
                         </ul>
                        </div>                   
