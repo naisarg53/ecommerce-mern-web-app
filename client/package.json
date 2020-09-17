@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://npshop.herokuapp.com/",
-  "dependencies": {
+  "dependencies": {   
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -15,6 +16,7 @@
     "react-bootstrap": "^1.3.0",
     "react-bootstrap-star-rating": "^3.5.5-alpha.0.3",
     "react-dom": "^16.13.1",
+    "react-loading-screen": "0.0.17",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-star-rating": "^1.4.2",
