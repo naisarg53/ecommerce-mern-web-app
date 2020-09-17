@@ -22,13 +22,18 @@ class AddToCartDetails extends React.Component {
 
        
             localStorage.setItem("checkoutCard", cardId);
-            localStorage.setItem("checkoutCardValue", JSON.stringify(cardValue));          
+            localStorage.setItem("checkoutCardValue", JSON.stringify(cardValue));
+            // this.props.history.push('/login');
+            // const dataValues = Object.values(data);
+            // localStorage.setItem("data", dataValues);
+        //    console.log(cardId);
+      //  console.log(JSON.stringify(cardValue));
         
     }    
 
     deleteCartProduct = (id) => {
         
-        axios.delete('carts/deleteProduct/' + id)
+        axios.delete('http://localhost:5000/carts/deleteProduct/' + id)
             .then((res) => {
                 console.log('Product successfully deleted!')
             }).catch((error) => {
@@ -50,20 +55,20 @@ class AddToCartDetails extends React.Component {
                                 data.map((cards, i) => (
                                 <li className="list-group-item" key={i} value={cards}>
                                     <img className="float-left w-25 mr-5 rounded" style={{ height: "100px" }} src={cards.img} alt="Card image cap" />
-                                    <div className="text-dark"><b style={{ padding: "10px" }}>Product :</b> {cards.product_title}
-                                        <Link to="/CheckoutSteps" onClick={() => this.goToCardDetails(i, cards)}><button className="btn btn-sm btn-primary float-right col-md-2 mt-2">
+                                    <div className="text-dark"><b style={{ padding: "10px" }}>Product :</b> {cards.product_title}                                        
+                                    </div>
+                                    <div className="text-dark"><b style={{ padding: "10px" }}>Price :</b>{cards.price}                                        
+                                        </div>
+                                        <div className="text-dark"><b style={{ padding: "10px" }}>Quantity :</b>
+                                            {cards.quantity}
+                                        </div>
+                                        <Link to="/CheckoutSteps" onClick={() => this.goToCardDetails(i, cards)}><button className="btn btn-sm btn-primary float-left col-md-2 col-sm-2 col-lg-2 mt-2">
                                             CheckOut
                                         </button></Link>
-                                    </div>
-                                    <div className="text-dark"><b style={{ padding: "10px" }}>Price :</b>{cards.price}
-                                        
-                                    </div>
-                                    <button className="btn btn-sm btn-danger float-right col-md-2 mt-4" onClick={() => this.deleteCartProduct(cards._id)}>
+                                    <button className="btn btn-sm btn-danger float-right col-md-2 col-sm-2 col-lg-2 mt-2" onClick={() => this.deleteCartProduct(cards._id)}>
                                         Delete
                                         </button>
-                                    <div className="text-dark"><b style={{ padding: "10px" }}>Quantity :</b>
-                                        {cards.quantity}
-                                    </div>
+                                    
 
                                 </li>
                                 )) :
