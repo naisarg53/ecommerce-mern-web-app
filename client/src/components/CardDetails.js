@@ -70,9 +70,9 @@ class CardDetails extends React.Component {
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <img src={selectedCardValue.img}
-                                className="float-left mr-5 rounded"
+                                className="float-left rounded col-lg-4 col-md-6 col-sm-4"
                                 className="form-control"
-                                style={{ height: "350px", width: "800px" }}
+                                style={{ height: "250px" }}
                                 onChange={this.handleCategory}
                                 type="text"
                                 alt="No Image Available"
