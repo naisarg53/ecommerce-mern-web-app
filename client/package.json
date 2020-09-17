@@ -20,8 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-star-rating": "^1.4.2",
-    "react-stripe-checkout": "^2.6.3",
-    "webpack": "^4.44.0"
+    "react-stripe-checkout": "^2.6.3"
   },
   "scripts": {
     "predeploy": "npm run build",
