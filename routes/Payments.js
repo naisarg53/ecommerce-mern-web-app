@@ -31,7 +31,7 @@ payment.post('/', (req, res) => {
 
             return stripe.charges.create({
                 amount: req.body.amount,
-                currency: 'INR',
+                currency: 'inr',
                 description: req.body.description,
                 customer: customer.id,                
             });
