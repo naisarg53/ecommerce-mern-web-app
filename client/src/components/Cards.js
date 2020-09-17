@@ -2,6 +2,7 @@ import React from 'react';
 import { getProducts } from './UserFunctions';
 import { Link } from 'react-router-dom';
 import  axios  from 'axios';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 class Cards extends React.Component {
 
@@ -90,7 +91,26 @@ class Cards extends React.Component {
                                 </div>                                
                             ))
                         :
-                        <h3 className="mx-auto mt-5">Product Does Not Exist</h3>
+                        <div className="container">
+
+                            <div className="row">
+                            {Array(12)
+                                .fill()
+                                .map((item, index) => (
+                                    <div className="col-sm-4 mb-5" key={index} value={item}>
+                                    <div className="card rounded" style={{ height: "300px" }}>
+                                        <Skeleton className="col-sm-3 col-lg-12 p-5" style={{ height: "200px" }} />
+                                            <h3 className="card-title" style={{ fontSize: "14px" }}>
+                                            <Skeleton className="col-sm-3 col-lg-12 p-2" />
+                                        </h3>
+                                            <p className="card-text" style={{ fontSize: "16px" }}>
+                                            <Skeleton className="col-sm-3 col-lg-12 p-2" />
+                                        </p>
+                                        </div>
+                                    </div>
+                                ))}                                                         
+                            </div>
+                        </div>
                         }
 
                 </div>                
