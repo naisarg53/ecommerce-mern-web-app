@@ -39,7 +39,7 @@ class Register extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
+                       <form onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">Register</h1>
                             <div className="form-group">
                                 <label htmlFor="name">First name</label>
@@ -50,6 +50,7 @@ class Register extends Component {
                                     placeholder="Enter your first name"
                                     value={this.state.first_name}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -61,6 +62,7 @@ class Register extends Component {
                                     placeholder="Enter your lastname name"
                                     value={this.state.last_name}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -72,6 +74,7 @@ class Register extends Component {
                                     placeholder="Enter email"
                                     value={this.state.email}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -83,6 +86,7 @@ class Register extends Component {
                                     placeholder="Password"
                                     value={this.state.password}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <button
