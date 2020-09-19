@@ -54,7 +54,7 @@ class AddProduct extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">Add New Product</h1>
                             <div className="form-group">
                                 <label htmlFor="name">Product Title</label>
@@ -65,6 +65,7 @@ class AddProduct extends Component {
                                     placeholder="Enter product name"
                                     value={this.state.product_title}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -76,6 +77,7 @@ class AddProduct extends Component {
                                     placeholder="Enter product price"
                                     value={this.state.price}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div class="form-group">
@@ -88,6 +90,7 @@ class AddProduct extends Component {
                                     value={this.state.name}
                                     onChange={this.handleImageChange}
                                     alt="Unknown Image"
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -99,6 +102,7 @@ class AddProduct extends Component {
                                     placeholder="Enter product Category"
                                     value={this.state.category}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
 
@@ -111,6 +115,7 @@ class AddProduct extends Component {
                                     placeholder="Enter product Quantity"
                                     value={this.state.quantity}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
 
@@ -123,6 +128,7 @@ class AddProduct extends Component {
                                     placeholder="Enter product Description"
                                     value={this.state.description}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <button
