@@ -55,7 +55,7 @@ class UpdateShipping extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">Update Shipping Address</h1>
                             <div className="form-group">
                                 <label htmlFor="name">Address</label>
@@ -66,6 +66,7 @@ class UpdateShipping extends Component {
                                     placeholder="Enter your Address"
                                     value={this.state.address}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -77,6 +78,7 @@ class UpdateShipping extends Component {
                                     placeholder="Enter your City"
                                     value={this.state.city}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -88,6 +90,7 @@ class UpdateShipping extends Component {
                                     placeholder="Enter Postal Code"
                                     value={this.state.postal_code}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -99,6 +102,7 @@ class UpdateShipping extends Component {
                                     placeholder="Enter your Country"
                                     value={this.state.country}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <div className="form-group">
@@ -110,6 +114,7 @@ class UpdateShipping extends Component {
                                     placeholder="Enter your Mobile Number"
                                     value={this.state.phone}
                                     onChange={this.onChange}
+                                    required
                                 />
                             </div>
                             <Link to="/CheckoutSteps"><button
