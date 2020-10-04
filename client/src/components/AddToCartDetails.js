@@ -33,7 +33,7 @@ class AddToCartDetails extends React.Component {
 
     deleteCartProduct = (id) => {
         
-        axios.delete('http://localhost:5000/carts/deleteProduct/' + id)
+        axios.delete('carts/deleteProduct/' + id)
             .then((res) => {
                 console.log('Product successfully deleted!')
             }).catch((error) => {
