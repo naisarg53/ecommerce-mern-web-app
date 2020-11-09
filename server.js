@@ -7,6 +7,7 @@ var port = process.env.PORT || 5000
 var fs = require('fs');
 var path = require('path');
 const dotenv = require("dotenv");
+const morgan = require('morgan')
 dotenv.config()
 
 
@@ -41,6 +42,7 @@ if (process.env.NODE_ENV === 'production') {
 
     app.use(express.static('client/build'));
 }
+app.use(morgan('tiny'));
 
 app.listen(port, function () {
     console.log('Server is running on port: ' + port)
