@@ -12,6 +12,7 @@ shippings.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 // Post request
+// Test branch change
 shippings.post('/shipping', (req, res) => {
     const today = new Date()
     const shippingData = {
