@@ -11,7 +11,7 @@ const Shipping = require('../models/Shipping')
 shippings.use(cors())
 
 process.env.SECRET_KEY = 'secret'
-
+// Post request
 shippings.post('/shipping', (req, res) => {
     const today = new Date()
     const shippingData = {
