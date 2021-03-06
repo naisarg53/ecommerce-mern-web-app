@@ -2,7 +2,11 @@
 const express = require('express')
 const shippings = express.Router()
 const cors = require('cors')
+<<<<<<< HEAD
+const mongoose = require('mongoose')
+=======
 
+>>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
 const Shipping = require('../models/Shipping')
 shippings.use(cors())
 
@@ -91,11 +95,29 @@ shippings.post('/update-shipping/:user_id', (req, res) => {
         })
 })*/
 
+<<<<<<< HEAD
+shippings.put('/update-shipping/:id', async (req, res) => {
+
+    const { id: _id } = req.params;
+
+    const post = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with that id');
+
+    const updateItem = await Shipping.findByIdAndUpdate(_id, { ...post, _id }, { new: true });
+
+    res.json(updateItem);
+/*
+    Shipping.findByIdAndUpdate(req.params.user_id, {
+        $set: req.body
+    },(error, data) => {
+=======
 shippings.put('/update-shipping/:user_id', (req, res) => {
 
     Shipping.findOneAndUpdate(req.params.user_id, {
         $set: req.body
     }, (error, data) => {
+>>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
         if (error) {
             return error;
             console.log(error)
@@ -103,7 +125,11 @@ shippings.put('/update-shipping/:user_id', (req, res) => {
             res.json(data)
             console.log('Shipping updated successfully !')
         }
+<<<<<<< HEAD
+    })*/
+=======
     })
+>>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
 })
 
 module.exports = shippings
