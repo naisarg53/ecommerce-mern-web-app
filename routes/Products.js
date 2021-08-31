@@ -12,7 +12,7 @@ const path = require('path');
 
 
 const s3 = new aws.S3({
-    accessKeyId: 'AKIAZ3ODYIRGWY3YKZOX',
+    accessKeyId: 'Your Api Key',
     secretAccessKey: 'cts2S38f39Kis53QAkaYX+6oOM66PWDBKVHMdJnD',
     Bucket: 'productimageupload'
 });
