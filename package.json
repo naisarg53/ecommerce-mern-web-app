@@ -2,7 +2,7 @@
   "name": "ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",  
+  "main": "server.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
@@ -17,7 +17,13 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "paytm-pg-node-sdk": "^1.0.4",
-    "stripe": "^8.89.0"
+    "stripe": "^8.89.0",
+    "aws-sdk": "^2.329.0",
+    "concurrently": "^4.0.1",
+    "multer-s3": "^2.7.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0",
+    "validator": "^10.8.0"
   },
   "devDependencies": {
     "gh-pages": "^3.1.0"

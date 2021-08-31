@@ -18,19 +18,20 @@ class AddProduct extends Component {
         this.onSubmit = this.onSubmit.bind(this)
         this.handleImageChange = this.handleImageChange.bind(this)
     }
-    
+
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
-       // console.log([e.target.name]);
+        // console.log([e.target.name]);
     }
 
     handleImageChange = e => {
         this.setState({ img: e.target.files[0] });
-       // console.log(e.target.files[0]);
+        // console.log(e.target.files[0]);
     };
 
     onSubmit(e) {
         e.preventDefault()
+        console.log(this.state.img);
         const form = new FormData();
         form.append('product_title', this.state.product_title);
         form.append('price', this.state.price);
@@ -38,15 +39,15 @@ class AddProduct extends Component {
         form.append('category', this.state.category);
         form.append('quantity', this.state.quantity);
         form.append('description', this.state.description);
-      //  console.log(this.state.img);
-       // console.log(form);
+        //  console.log(this.state.img);
+        // console.log(form);
         axios.post("products/productRegister", form, {}).then(res => {
             if (res) {
                 this.props.history.push(`/`)
             }
             console.log(res)
         })
-       
+
     }
 
     render() {
@@ -136,7 +137,7 @@ class AddProduct extends Component {
                                 className="btn btn-lg btn-primary btn-block"
                             >
                                 Add Product
-              </button>
+                            </button>
                         </form>
                     </div>
                 </div>

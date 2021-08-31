@@ -6,17 +6,52 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken') // authetication
 
 const multer = require('multer');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const path = require('path');
+
+
+const s3 = new aws.S3({
+    accessKeyId: 'AKIAZ3ODYIRGWY3YKZOX',
+    secretAccessKey: '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',
+    Bucket: 'productimageupload'
+});
+
+const profileImgUpload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: 'productimageupload',
+        acl: 'public-read',
+        key: function (req, file, cb) {
+            cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
+        }
+    }),
+    limits: { fileSize: 2000000 }, // In bytes: 2000000 bytes = 2 MB
+    fileFilter: function (req, file, cb) {
+        checkFileType(file, cb);
+    }
+}).single('img');
+
+function checkFileType(file, cb) {
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    // Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    // Check mime
+    const mimetype = filetypes.test(file.mimetype);
+    if (mimetype && extname) {
+        return cb(null, true);
+    } else {
+        cb('Error: Images Only!');
+    }
+}
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, './Uploads/')
     },
     filename: (req, file, cb) => {
-<<<<<<< HEAD
         cb(null, Date.now() + file.originalname);
-=======
-        cb(null, Date.now()+ file.originalname);
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
     }
 });
 
@@ -37,29 +72,25 @@ products.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
-products.post('/productRegister', upload.single('img'), (req, res) => {
+products.post('/productRegister', profileImgUpload, (req, res) => {
+
     const url = req.protocol + '://' + req.get('host')
     const today = new Date()
+    console.log(req.file);
     const productData = {
         product_title: req.body.product_title,
         price: req.body.price,
-<<<<<<< HEAD
-        img: url + 'Uploads/' + req.file.filename,
-=======
-        img: url + '/Uploads/' + req.file.filename,
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
+
+        //img: url + 'Uploads/' + req.file.filename,
+        img: req.file.location,
         category: req.body.category,
         quantity: req.body.quantity,
         description: req.body.description,
         created: today
     }
-<<<<<<< HEAD
-    console.log(req.file.filename);
+    console.log(req.file.location);
     console.log(productData);
 
-=======
-    console.log(productData);
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
     Product.findOne({
         product_title: req.body.product_title
     })
@@ -68,17 +99,13 @@ products.post('/productRegister', upload.single('img'), (req, res) => {
                 Product.create(productData)
                     .then(product => {
                         res.json({ status: product.product_title + ' Product Added' })
-<<<<<<< HEAD
                     })
                     .catch(err => {
                         res.send('error: ' + err)
                     })
-=======
-                        })
-                        .catch(err => {
-                            res.send('error: ' + err)
-                        })
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
+                    .catch(err => {
+                        res.send('error: ' + err)
+                    })
             } else {
                 res.json({ error: 'Product already exists' })
             }
@@ -86,10 +113,10 @@ products.post('/productRegister', upload.single('img'), (req, res) => {
         .catch(err => {
             res.send('error: ' + err)
         })
+
 })
 
 products.get('/getProducts', (req, res) => {
-<<<<<<< HEAD
 
     Product.find()
         .then(product => {
@@ -97,37 +124,36 @@ products.get('/getProducts', (req, res) => {
                 res.header("Cache-Control", "no-cache, no-store, must-revalidate");
                 res.header("Pragma", "no-cache");
                 res.header("Expires", 0);
-=======
-    
-    Product.find()
-        .then(product => {
-            if (product) {
-                 res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.header("Pragma", "no-cache");
-    res.header("Expires", 0);
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
-                res.json(product)
-            } else {
-                res.send('Product does not exist')
+
+                Product.find()
+                    .then(product => {
+                        if (product) {
+                            res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+                            res.header("Pragma", "no-cache");
+                            res.header("Expires", 0);
+                            res.json(product)
+                        } else {
+                            res.send('Product does not exist')
+                        }
+                    })
+                    .catch(err => {
+                        res.send('error: ' + err)
+                    })
             }
-        })
-        .catch(err => {
-            res.send('error: ' + err)
         })
 })
 
-<<<<<<< HEAD
-products.put('/update-product/:id', upload.single('img'), async (req, res) => {
+products.put('/update-product/:id', profileImgUpload, async (req, res) => {
 
     const { id: _id } = req.params;
-   // const post = req.body;
-   // console.log(post);
+    // const post = req.body;
+    // console.log(post);
     const today = new Date()
     const productData = {
         _id: _id,
         product_title: req.body.product_title,
         price: req.body.price,
-        img: 'Uploads/' + req.file.filename,
+        img: req.file.location,
         category: req.body.category,
         quantity: req.body.quantity,
         description: req.body.description,
@@ -157,11 +183,8 @@ products.put('/update-product/:product_id', upload.single('img'), (req, res) => 
     }
     console.log(productData);
     Product.findOneAndUpdate(req.params.product_id, {
-<<<<<<< HEAD
         $set: productData
-=======
         $set: productData 
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
     }, (error, data) => {
         if (error) {
             return error;
@@ -177,9 +200,6 @@ products.put('/update-product/:product_id', upload.single('img'), (req, res) => 
     })
 <<<<<<< HEAD
     */
-=======
-        
->>>>>>> ec89379130c9d672eda92a907a3f1b4ba92c44f2
 })
 
 products.delete('/deleteProduct/:id', (req, res) => {
@@ -192,7 +212,7 @@ products.delete('/deleteProduct/:id', (req, res) => {
                 msg: data
             })
         }
-    })
+    });
 })
 
 module.exports = products
