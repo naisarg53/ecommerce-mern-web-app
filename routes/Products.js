@@ -10,12 +10,11 @@ const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const path = require('path');
 
-const AWS_KEY = process.env['AWS_KEY'];
-const SECRET_KEY = process.env['AWS_SECRET_KEY'];
+
 
 const s3 = new aws.S3({
-    accessKeyId: AWS_KEY,
-    secretAccessKey: SECRET_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     Bucket: 'productimageupload'
 });
 
