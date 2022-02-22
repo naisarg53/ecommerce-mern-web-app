@@ -19,7 +19,7 @@ app.use(
     })
 )
 
-const connection = "mongodb+srv://ecommercenshop:don654321@cluster0.z5fo7.mongodb.net/ecommercenshop?retryWrites=true&w=majority";
+const connection = "YOUR MONGODB URL";
 mongoose.connect(process.env.MONGODB_URL || connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
